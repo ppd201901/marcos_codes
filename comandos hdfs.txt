@@ -1,0 +1,14 @@
+hdfs dfs -mkdir /entrada
+
+hdfs dfs -copyFromLocal BolsaFamiliaAbr2019.csv /entrada/
+
+hdfs dfs -ls /entrada
+
+yarn jar bolsafamilia_2.10-1.0.jar /entrada/BolsaFamiliaAbr2019.csv /saida
+
+hdfs dfs -ls /saida
+
+hdfs dfs -cat /saida/part-r-00000
+
+hdfs dfs -rm -r -skipTrash /saida
+
